@@ -48,50 +48,7 @@
       border-radius: 10px;
       font-size: 16px;
     }
-    button {
-      margin-left: 10px;
-      padding: 10px 15px;
-      background-color: #b267ff;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    img.carta {
-      max-width: 150px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
 
-    #btnSiguienteCarta {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #6f42c1;
-  color: white;
-  border: none;
-  border-radius: 999px;
-  padding: 14px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  display: none;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-#btnSiguienteCarta.show {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#btnSiguienteCarta:hover {
-  background-color: #5a33a2;
-}
   </style>
 </head>
 <body>
@@ -362,41 +319,8 @@
       procesarMensaje("");
     });
 
-
-    
-function mostrarCarta(carta) {
-  const contenedor = document.createElement("div");
-  contenedor.className = "mensaje burbuja-respuesta";
-  contenedor.innerHTML = `
-    <img src="${carta.img}" alt="${carta.nombre}" style="width: 120px; height: auto; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.4); margin-bottom: 8px;" />
-    <strong>${carta.nombre}</strong><br />
-    <span>${carta.breve}</span>
-  `;
-  chat.appendChild(contenedor);
-  chat.scrollTop = chat.scrollHeight;
-
-  // Mostrar botón solo después de la primera carta
-  if (indiceCarta === 1) {
-    mostrarBotonSiguienteCarta();
-  }
-}
-
-function mostrarBotonSiguienteCarta() {
-  document.getElementById("btnSiguienteCarta").style.display = "block";
-}
-
-    function mostrarSiguienteCarta() {
-    if (indiceCarta < 3) {
-      mostrarCarta(cartasSeleccionadas[indiceCarta]);
-      indiceCarta++;
-      if (indiceCarta === 3) {
-        document.getElementById("btnSiguienteCarta").style.display = "none";
-        interpretarCartas();
-      }
-    }
-  }
   </script>
-  <button id="btnSiguienteCarta" onclick="mostrarSiguienteCarta()">
+  
   👉 Siguiente carta
 </button>
 
