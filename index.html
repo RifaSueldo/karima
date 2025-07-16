@@ -362,6 +362,29 @@
       procesarMensaje("");
     });
 
+
+    
+function mostrarCarta(carta) {
+  const contenedor = document.createElement("div");
+  contenedor.className = "mensaje burbuja-respuesta";
+  contenedor.innerHTML = `
+    <img src="${carta.img}" alt="${carta.nombre}" style="width: 120px; height: auto; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.4); margin-bottom: 8px;" />
+    <strong>${carta.nombre}</strong><br />
+    <span>${carta.breve}</span>
+  `;
+  chat.appendChild(contenedor);
+  chat.scrollTop = chat.scrollHeight;
+
+  // Mostrar botón solo después de la primera carta
+  if (indiceCarta === 1) {
+    mostrarBotonSiguienteCarta();
+  }
+}
+
+function mostrarBotonSiguienteCarta() {
+  document.getElementById("btnSiguienteCarta").style.display = "block";
+}
+
     function mostrarSiguienteCarta() {
     if (indiceCarta < 3) {
       mostrarCarta(cartasSeleccionadas[indiceCarta]);
