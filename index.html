@@ -74,7 +74,7 @@
 
   <!-- Script frontend -->
   <script>
-    // lunara.js (frontend)
+   
 
 let estado = "saludo";
 let nombre = "";
@@ -182,7 +182,7 @@ function mostrarCarta() {
 
 async function interpretarTirada(cartas) {
   try {
-    const res = await fetch("/.netlify/functions/lunara", {
+    const res = await fetch("/.netlify/functions/api", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ cartas, nombre, sexo, historia })
