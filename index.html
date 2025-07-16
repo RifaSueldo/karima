@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Madame Lunara</title>
+  <title>Karima</title>
   <style>
     body {
       background: #1e1028;
@@ -81,13 +81,139 @@
     let indiceCarta = 0;
 
     const mazo = [
-      { nombre: "La Estrella", img: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg", breve: "Esperanza, guía, inspiración." },
-      { nombre: "La Muerte", img: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg", breve: "Transformación profunda, fin de ciclo." },
-      { nombre: "El Sol", img: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg", breve: "Alegría, claridad, éxito." },
-      { nombre: "El Colgado", img: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg", breve: "Rendición, nueva perspectiva, pausa." },
-      { nombre: "La Luna", img: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg", breve: "Ilusiones, intuición, mundo interior." },
-      { nombre: "La Templanza", img: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg", breve: "Armonía, sanación, equilibrio." }
-    ];
+  {
+    nombre: "El Loco",
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg",
+    breve: "Inicio, libertad, aventura.",
+    descripcion: "Representa nuevos comienzos, inocencia y el deseo de explorar sin miedo. Es la carta del potencial puro y la confianza en el camino desconocido."
+  },
+  {
+    nombre: "El Mago",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3a/The_Magician_Tarot_Card.jpg",
+    breve: "Poder personal, acción, manifestación.",
+    descripcion: "Simboliza la capacidad de transformar ideas en realidad. El Mago es hábil, consciente de su poder y preparado para actuar con intención."
+  },
+  {
+    nombre: "La Suma Sacerdotisa",
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg",
+    breve: "Intuición, sabiduría oculta, misterio.",
+    descripcion: "Guía hacia el mundo interior. Representa el saber profundo, el conocimiento no revelado y la conexión con lo espiritual."
+  },
+  {
+    nombre: "La Emperatriz",
+    img: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg",
+    breve: "Fertilidad, abundancia, creación.",
+    descripcion: "Simboliza la madre tierra, la energía femenina y la capacidad de nutrir y dar vida a proyectos, ideas o relaciones."
+  },
+  {
+    nombre: "El Emperador",
+    img: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg",
+    breve: "Orden, estructura, liderazgo.",
+    descripcion: "Representa autoridad, estabilidad y protección. El Emperador aporta dirección firme y seguridad en tiempos de incertidumbre."
+  },
+  {
+    nombre: "El Hierofante",
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg",
+    breve: "Tradición, sabiduría espiritual, guía.",
+    descripcion: "Es el maestro espiritual, representante de normas, rituales y valores colectivos. Invita a aprender y a conectar con lo sagrado."
+  },
+  {
+    nombre: "Los Enamorados",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3a/The_Lovers_Tarot_Card.jpg",
+    breve: "Elección, amor, unión.",
+    descripcion: "Simboliza decisiones importantes, relaciones profundas y la armonía entre opuestos. Invita a actuar con el corazón."
+  },
+  {
+    nombre: "El Carro",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3b/RWS_Tarot_07_Chariot.jpg",
+    breve: "Voluntad, victoria, avance.",
+    descripcion: "Representa determinación, control y triunfo sobre los obstáculos. Es una señal de éxito si se mantiene el enfoque."
+  },
+  {
+    nombre: "La Fuerza",
+    img: "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg",
+    breve: "Coraje, compasión, dominio interno.",
+    descripcion: "Habla del poder de la dulzura. La verdadera fuerza proviene del amor, la paciencia y la calma interior."
+  },
+  {
+    nombre: "El Ermitaño",
+    img: "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg",
+    breve: "Reflexión, búsqueda interior, soledad.",
+    descripcion: "Invita a retirarse del ruido externo para buscar respuestas dentro. Es la carta de la introspección y la sabiduría silenciosa."
+  },
+  {
+    nombre: "La Rueda de la Fortuna",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg",
+    breve: "Destino, ciclos, cambios inesperados.",
+    descripcion: "Simboliza los giros del destino. Advierte que nada es permanente y todo está en constante movimiento."
+  },
+  {
+    nombre: "La Justicia",
+    img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg",
+    breve: "Equilibrio, verdad, consecuencias.",
+    descripcion: "Es la carta del karma, la objetividad y las decisiones justas. Invita a asumir responsabilidad por nuestros actos."
+  },
+  {
+    nombre: "El Colgado",
+    img: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg",
+    breve: "Pausa, perspectiva nueva, rendición.",
+    descripcion: "Sugiere detenerse y mirar las cosas desde otro ángulo. La entrega a lo inevitable trae comprensión y crecimiento."
+  },
+  {
+    nombre: "La Muerte",
+    img: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg",
+    breve: "Fin de ciclo, transformación, renacimiento.",
+    descripcion: "No representa muerte literal, sino el cierre necesario de una etapa para permitir el crecimiento y la renovación."
+  },
+  {
+    nombre: "La Templanza",
+    img: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg",
+    breve: "Equilibrio, armonía, paciencia.",
+    descripcion: "Promueve la moderación, el ajuste y la mezcla adecuada de opuestos. Es un llamado a fluir con calma y confianza."
+  },
+  {
+    nombre: "El Diablo",
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_15_Devil.jpg",
+    breve: "Ataduras, placer, sombra.",
+    descripcion: "Representa los deseos más bajos, adicciones o creencias limitantes. Es un llamado a reconocer lo que nos domina."
+  },
+  {
+    nombre: "La Torre",
+    img: "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg",
+    breve: "Ruptura, revelación, liberación.",
+    descripcion: "Llega para romper estructuras falsas o insostenibles. Aunque sacudida, es necesaria para reconstruir con verdad."
+  },
+  {
+    nombre: "La Estrella",
+    img: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg",
+    breve: "Esperanza, sanación, guía espiritual.",
+    descripcion: "Trae luz tras la tormenta. Es señal de renovación, fe en el futuro y alineación con lo más elevado."
+  },
+  {
+    nombre: "La Luna",
+    img: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg",
+    breve: "Intuición, confusión, sueños.",
+    descripcion: "Habla de ilusiones, dudas y emociones profundas. Invita a navegar el inconsciente con cuidado y sensibilidad."
+  },
+  {
+    nombre: "El Sol",
+    img: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg",
+    breve: "Alegría, claridad, éxito.",
+    descripcion: "Anuncia momentos de felicidad, verdad revelada y energía vital. Es una de las cartas más positivas del tarot."
+  },
+  {
+    nombre: "El Juicio",
+    img: "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg",
+    breve: "Despertar, redención, nuevo propósito.",
+    descripcion: "Representa una llamada a una vida más auténtica. Invita a cerrar el pasado y renacer con conciencia."
+  },
+  {
+    nombre: "El Mundo",
+    img: "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg",
+    breve: "Finalización, plenitud, integración.",
+    descripcion: "Simboliza el cierre exitoso de un ciclo. Has alcanzado la totalidad de una experiencia. Celebra tu evolución."
+  }
+];
 
     function agregarMensaje(texto, clase = "lunara") {
       const div = document.createElement("div");
@@ -112,7 +238,7 @@
         let saludo = "Buenas noches";
         if (hora < 12) saludo = "Buenos días";
         else if (hora < 19) saludo = "Buenas tardes";
-        agregarMensaje(`${saludo}. Soy Madame Lunara. ¿Querés comentarme qué te trae por estos lados antes de tirar las cartas? Necesito saber tu nombre y sexo.`);
+        agregarMensaje(`${saludo}. Soy Karima. ¿Querés comentarme qué te trae por estos lados antes de tirar las cartas? Necesito saber tu nombre y sexo.`);
         estado = "pedirNombreSexo";
         return;
       }
@@ -186,7 +312,7 @@
             messages: [
               {
                 role: "system",
-                content: "Sos Madame Lunara, una tarotista dulce, intuitiva y mística. Tus respuestas deben ser breves, sentidas y con un tono esotérico serio y cálido."
+                content: "Sos Karima, una tarotista dulce, intuitiva y mística. Tus respuestas deben ser breves, sentidas y con un tono esotérico serio y cálido. Si la situacion lo permite podes dar un consejo"
               },
               {
                 role: "user",
