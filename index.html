@@ -193,6 +193,11 @@ async function interpretarTirada(cartas) {
     agregarMensaje("Error al conectar con el servidor. Por favor, intentá de nuevo más tarde.");
   }
 }
+
+    // Inicia la conversación automáticamente al cargar la página
+window.addEventListener("load", () => {
+  procesarMensaje("");
+});
   </script>
 </body>
 </html>
