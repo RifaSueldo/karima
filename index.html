@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Madame Lunara</title>
   <style>
     body {
@@ -14,7 +14,6 @@
       height: 100vh;
       margin: 0;
     }
-
     #chat {
       flex: 1;
       padding: 15px;
@@ -22,30 +21,26 @@
       display: flex;
       flex-direction: column;
     }
-
     .mensaje {
       max-width: 80%;
       padding: 10px;
       border-radius: 10px;
       margin: 5px 0;
+      word-wrap: break-word;
     }
-
     .lunara {
       background-color: #3e1b58;
       align-self: flex-start;
     }
-
     .usuario {
       background-color: #7326c9;
       align-self: flex-end;
     }
-
     #input-area {
       display: flex;
       padding: 10px;
       background: #100818;
     }
-
     input[type="text"] {
       flex: 1;
       padding: 10px;
@@ -53,7 +48,6 @@
       border-radius: 10px;
       font-size: 16px;
     }
-
     button {
       margin-left: 10px;
       padding: 10px 15px;
@@ -64,7 +58,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     img.carta {
       max-width: 150px;
       border-radius: 8px;
@@ -78,6 +71,8 @@
     <input type="text" id="entrada" placeholder="Escribí tu mensaje..." autofocus />
     <button onclick="enviarMensaje()">Enviar</button>
   </div>
+
+  <!-- Script frontend -->
   <script src="lunara.js"></script>
 </body>
 </html>
