@@ -1,51 +1,51 @@
-// netlify/functions/lunara.js (serverless handler)
 
-const { Configuration, OpenAIApi } = require("openai");
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+exports.handler = async function (event) {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ respuesta: "Método no permitido" })
+    };
+  }
 
-const openai = new OpenAIApi(configuration);
+  const { messages } = JSON.parse(event.body || "{}");
 
-exports.handler = async (event) => {
+  if (!messages || !Array.isArray(messages)) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ respuesta: "No se recibieron mensajes válidos." })
+    };
+  }
+
+  const apiKey = process.env.OPENAI_API_KEY;
+
   try {
-    const { cartas, nombre, sexo, historia } = JSON.parse(event.body);
-
-    const prompt = `Sos Madame Lunara, una tarotista intuitiva, amable, sabia y mística.
-Te habla un consultante llamado ${nombre}, que se identifica como ${sexo}.
-Ha contado lo siguiente: "${historia}".
-Has tirado estas tres cartas: ${cartas.join(", ")}.
-Ahora debes hacer una interpretación mística, breve, emocional y coherente, que una los significados de las tres cartas entre sí, dirigida al consultante por su nombre.`;
-
-    const completion = await openai.createChatCompletion({
-      model: "gpt-4",
-      messages: [
-        {
-          role: "system",
-          content: "Sos Madame Lunara, una tarotista dulce, intuitiva y mística. Tus respuestas deben ser breves, sentidas y con un tono esotérico serio y cálido."
-        },
-        {
-          role: "user",
-          content: prompt
-        }
-      ],
-      temperature: 0.8,
-      max_tokens: 300
+    const respuestaIA = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: messages,
+        temperature: 0.70
+      })
     });
 
-    const respuesta = completion.data.choices[0].message.content;
+    const data = await respuestaIA.json();
+
+    const texto = data.choices?.[0]?.message?.content?.trim();
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ interpretacion: respuesta })
+      body: JSON.stringify({ respuesta: texto || "No pude responderte esta vez." })
     };
 
   } catch (error) {
-    console.error("Error en Madame Lunara:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Hubo un error al interpretar las cartas." })
+      body: JSON.stringify({ respuesta: "Error interno: no pude contactar con Padre IANN." })
     };
   }
 };
