@@ -237,7 +237,7 @@ function mostrarTransicionYLuegoInterpretar() {
 
 async function interpretarCartas() {
   const nombres = cartasSeleccionadas.map(c => c.nombre).join(", ");
-  const prompt = `Estas son las cartas del tarot: ${nombres}. Por favor, dame una interpretación espiritual y simbólica de estas tres cartas combinadas, como si fueras una tarotista sabia, empática y directa.`;
+  const prompt = `Estas son las cartas del tarot: ${nombres}. Dame una interpretación espiritual y simbólica de estas tres cartas combinadas, como si fueras una tarotista sabia, empática y directa.`;
 
   agregarMensaje("Consultando a los espíritus...", "madame");
 
@@ -277,17 +277,17 @@ function procesarEntrada(entrada) {
   if (estado === "saludo") {
     const hora = new Date().getHours();
     const saludo = hora < 12 ? "Buenos días" : hora < 20 ? "Buenas tardes" : "Buenas noches";
-    agregarMensaje(`${saludo.italics()}, soy Madame Lunara. ¿Cuál es tu nombre?`, "madame");
+    agregarMensaje(`${saludo.italics()}, Madame Lunara de este lado ¿Cómo te llamas?`, "madame");
     estado = "pedirNombre";
 
   } else if (estado === "pedirNombre") {
     nombre = entrada;
-    agregarMensaje(`Un gusto, ${nombre}. ¿Sos hombre, mujer u otra identidad?`, "madame");
+    agregarMensaje(`Un gusto, ${nombre}. Sos Hombre? Mujer? Otro?`, "madame");
     estado = "pedirSexo";
 
   } else if (estado === "pedirSexo") {
     sexo = entrada.toLowerCase();
-    agregarMensaje(`Gracias. Visualizá lo que queres saber.. Si querés me podes contar o directamente tiramos las cartas. Comenzamos?`, "madame");
+    agregarMensaje(`Gracias. Visualizá lo que queres saber.. Comenzamos?`, "madame");
     estado = "preguntarHistoria";
 
   } else if (estado === "preguntarHistoria") {
@@ -296,7 +296,7 @@ function procesarEntrada(entrada) {
     } else {
       historia = entrada;
     }
-    agregarMensaje("Me concentro... barajo las cartas... Vamos con la primera carta.", "madame");
+    agregarMensaje("Veamos que sale... barajo las cartas... Vamos con la primera.", "madame");
     cartasSeleccionadas = mazo.sort(() => 0.5 - Math.random()).slice(0, 3);
     setTimeout(() => mostrarCarta(), 2000);
     estado = "tirandoCartas";
@@ -326,7 +326,7 @@ botonSiguiente.addEventListener("click", () => {
 });
 
 // Disparo inicial
-agregarMensaje("✨ Bienvenido al tarot de Madame Lunara ✨", "madame");
+agregarMensaje("Bienvenido", "madame");
 setTimeout(() => procesarEntrada(""), 1000);
 </script>
 
