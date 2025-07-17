@@ -292,7 +292,7 @@ async function interpretarCartas() {
     const data = await respuesta.json();
     agregarMensaje(data.respuesta || "No pude interpretar las cartas esta vez.", "madame");
     estado = "esperandoPregunta";
-
+})
   } catch (error) {
     agregarMensaje("Error al contactar al oráculo: " + error.message, "madame");
   }
