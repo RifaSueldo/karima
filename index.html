@@ -5,19 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Madame Lunara</title>
   <style>
-    body {
-      margin: 0;
-  font-family: sans-serif;
-  background: #f1e9f9;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+    * {
+      box-sizing: border-box;
     }
-
+    html, body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+     html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at 50% 50%, #311840, #120222 70%);
+  
+      color: #fff;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
     #chat {
   flex: 1 1 auto;
-  max-width: 600px;
-  margin: 0 auto;
   padding: 10px;
   overflow-y: auto;
   display: flex;
@@ -47,8 +55,7 @@
 
     #entrada {
   flex-shrink: 0;
-  max-width: 600px;
-  margin: 0 auto;
+  
   display: flex;
   padding: 10px;
   border-top: 1px solid #ccc;
