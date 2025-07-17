@@ -291,8 +291,7 @@ async function interpretarCartas() {
 
     const data = await respuesta.json();
     agregarMensaje(data.respuesta || "No pude interpretar las cartas esta vez.", "madame");
-    estado = "esperandoPregunta";
-})
+    
   } catch (error) {
     agregarMensaje("Error al contactar al oráculo: " + error.message, "madame");
   }
@@ -328,10 +327,10 @@ function procesarEntrada(entrada) {
     setTimeout(() => mostrarCarta(), 2000);
     estado = "tirandoCartas";
 
-  } else if (estado === "tirandoCartas") {
-    agregarMensaje("Usá el botón para ver la siguiente carta.", "madame");
-  
-  } else if (estado === "esperandoPregunta") {
+ } else if (estado === "tirandoCartas") {
+  agregarMensaje("Usá el botón para ver la siguiente carta.", "madame");
+
+} else if (estado === "esperandoPregunta") {
   const prompt = `La persona consultante, llamada ${nombre}, pregunta: "${entrada}". Respondé con calidez y sabiduría, como Madame Lunara.`;
 
   fetch("/.netlify/functions/api", {
@@ -358,6 +357,7 @@ function procesarEntrada(entrada) {
     agregarMensaje("No pude conectar con el oráculo en este momento.", "madame");
   });
 }
+
 
 
 enviar.addEventListener("click", () => {
