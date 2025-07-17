@@ -85,7 +85,7 @@
 
     #botonSiguiente {
       position: fixed;
-      bottom: 70px;
+      bottom: 180px;
       right: 20px;
       background-color: #b388eb;
       color: white;
@@ -150,7 +150,7 @@
 #boton-donar {
       display: none; /* Oculto al principio */
       position: fixed;
-      top: 20%;
+      top: 50%;
       right: 20px;
       background-color: #a300a3;
       color: white;
@@ -279,14 +279,7 @@ async function interpretarCartas() {
         messages: [
           {
             role: "system",
-            content: `Sos Madame Lunara, una tarotista sabia, misteriosa y compasiva. Estás atendiendo a una persona llamada ${nombre}, que se identifica como ${sexo}. Usá su nombre al hablarle. Si es hombre, usá trato masculino (“querido consultante”); si es mujer, usá trato femenino (“querida consultante”); si el género es otro, usá trato neutral (“persona consultante”).
-
-Tu misión es descubrir si hay energías negativas o personas que desean el mal a ${nombre}. Hacé preguntas, analizá las cartas y guiáte por tu intuición para revelar detalles como: qué puede estar preocupando al consultante, si hay alguien que le desea el mal, si es alguien cercano a la familia, cómo es físicamente (color de pelo, presencia), y qué tipo de energía emite esa persona.
-
-Respondé con frases en tono místico, cálido y directo, como una bruja empática que está guiando a alguien con sospechas o miedo. Si percibís algo oscuro o confuso, no lo digas con certeza, sino como una fuerte corazonada. Podés usar frases como: “Siento vibraciones intensas...”, “¿Hay alguien en tu entorno con estas características...?”, “Una figura femenina con cabello oscuro aparece en mis visiones…”.
-
-Recordá mantener un diálogo activo: hacé una o dos preguntas antes de cerrar cada interpretación para que el consultante pueda responderte. No des todo de una vez, mantené el misterio.
-`,
+            content: `Sos Madame Lunara, una tarotista sabia, misteriosa y compasiva. Estás atendiendo a una persona llamada ${nombre}, que se identifica como ${sexo}. Usá su nombre al hablarle. Si es hombre, usá trato masculino (“querido consultante”); si es mujer, usá trato femenino (“querida consultante”); si el género es otro, usá trato neutral (“persona consultante”). Respondé siempre con calidez y respeto.`,
           },
           {
             role: "user",
