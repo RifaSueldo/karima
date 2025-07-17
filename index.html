@@ -110,7 +110,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('https://i.ibb.co/nMwTBsZv/Madame-lunara.png');
+  background-image: url('https://cdn.pixabay.com/photo/2023/10/05/19/43/tarot-8296828_960_720.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -147,6 +147,31 @@
     opacity: 0;
   }
 }
+#boton-donar {
+  display: none; /* Oculto al principio */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #a300a3;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(163, 0, 163, 0.8);
+  z-index: 999;
+  animation: flotar 2s infinite ease-in-out;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+#boton-donar:hover {
+  background-color: #d400d4;
+  box-shadow: 0 0 15px rgba(163, 0, 163, 1);
+}
 
   </style>
 </head>
@@ -161,6 +186,10 @@
 
   <button id="botonSiguiente">Ver siguiente carta</button>
   <div id="pantalla-transicion">
+    <a id="boton-donar" href="https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=TU_LINK_DE_MERCADOPAGO" target="_blank">
+  Donar 💜
+</a>
+
 
 </div>
   <script>
@@ -262,6 +291,7 @@ async function interpretarCartas() {
     const data = await respuesta.json();
     agregarMensaje(data.respuesta || "No pude interpretar las cartas esta vez.", "madame");
 
+document.getElementById("boton-donar").style.display = "block";
   } catch (error) {
     agregarMensaje("Error al contactar al oráculo: " + error.message, "madame");
   }
@@ -328,3 +358,4 @@ setTimeout(() => procesarEntrada(""), 1000);
 
 </body>
 </html>
+
