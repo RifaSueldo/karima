@@ -291,7 +291,7 @@ async function interpretarCartas() {
 
     const data = await respuesta.json();
     agregarMensaje(data.respuesta || "No pude interpretar las cartas esta vez.", "madame");
-    
+
   } catch (error) {
     agregarMensaje("Error al contactar al oráculo: " + error.message, "madame");
   }
@@ -327,38 +327,10 @@ function procesarEntrada(entrada) {
     setTimeout(() => mostrarCarta(), 2000);
     estado = "tirandoCartas";
 
- } else if (estado === "tirandoCartas") {
-  agregarMensaje("Usá el botón para ver la siguiente carta.", "madame");
-
-} else if (estado === "esperandoPregunta") {
-  const prompt = `La persona consultante, llamada ${nombre}, pregunta: "${entrada}". Respondé con calidez y sabiduría, como Madame Lunara.`;
-
-  fetch("/.netlify/functions/api", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      messages: [
-        {
-          role: "system",
-          content: `Sos Madame Lunara, una tarotista sabia, misteriosa y compasiva. Estás atendiendo a una persona llamada ${nombre}, que se identifica como ${sexo}. Usá su nombre al hablarle. Si es hombre, usá trato masculino (“querido consultante”); si es mujer, usá trato femenino (“querida consultante”); si el género es otro, usá trato neutral (“persona consultante”). Respondé siempre con calidez, claridad y respeto.`,
-        },
-        {
-          role: "user",
-          content: prompt,
-        }
-      ]
-    }),
-  })
-  .then(res => res.json())
-  .then(data => {
-    agregarMensaje(data.respuesta || "Los espíritus están en silencio en este momento...", "madame");
-  })
-  .catch(error => {
-    agregarMensaje("No pude conectar con el oráculo en este momento.", "madame");
-  });
+  } else if (estado === "tirandoCartas") {
+    agregarMensaje("Usá el botón para ver la siguiente carta.", "madame");
+  }
 }
-
-
 
 enviar.addEventListener("click", () => {
   const entrada = texto.value.trim();
