@@ -110,7 +110,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('https://i.ibb.co/nMwTBsZv/Madame-lunara.png');
+  background-image: url('https://cdn.pixabay.com/photo/2023/10/05/19/43/tarot-8296828_960_720.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -171,13 +171,29 @@ let historia = "";
 let cartasSeleccionadas = [];
 let indiceCarta = 0;
 
-const mazo = const mazo = [
-  { nombre: "La Estrella", img: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg", breve: "Esperanza, guía, inspiración divina." },
-  { nombre: "La Muerte", img: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg", breve: "Fin de una etapa, transformación y renacimiento." },
-  { nombre: "El Sol", img: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg", breve: "Claridad, éxito rotundo, felicidad." },
-  { nombre: "El Colgado", img: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg", breve: "Pausa forzada, nueva visión, entrega." },
-  { nombre: "La Luna", img: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg", breve: "Confusión, intuición profunda, sombras." },
-  { nombre: "La Templanza", img: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg", breve: "Armonía, paciencia, equilibrio espiritual." }
+const mazo = [
+  { nombre: "El Loco", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RWS_Tarot_00_Fool.jpg/200px-RWS_Tarot_00_Fool.jpg", breve: "Nuevos comienzos, libertad, espontaneidad." },
+  { nombre: "El Mago", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/RWS_Tarot_01_Magician.jpg/200px-RWS_Tarot_01_Magician.jpg", breve: "Habilidad, acción, poder personal." },
+  { nombre: "La Sacerdotisa", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/200px-RWS_Tarot_02_High_Priestess.jpg", breve: "Sabiduría interior, misterio, intuición." },
+  { nombre: "La Emperatriz", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/RWS_Tarot_03_Empress.jpg/200px-RWS_Tarot_03_Empress.jpg", breve: "Abundancia, fertilidad, naturaleza." },
+  { nombre: "El Emperador", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/RWS_Tarot_04_Emperor.jpg/200px-RWS_Tarot_04_Emperor.jpg", breve: "Autoridad, estructura, control." },
+  { nombre: "El Hierofante", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/RWS_Tarot_05_Hierophant.jpg/200px-RWS_Tarot_05_Hierophant.jpg", breve: "Tradición, espiritualidad, guía moral." },
+  { nombre: "Los Enamorados", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/RWS_Tarot_06_Lovers.jpg/200px-RWS_Tarot_06_Lovers.jpg", breve: "Amor, elecciones, conexión profunda." },
+  { nombre: "El Carro", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_07_Chariot.jpg/200px-RWS_Tarot_07_Chariot.jpg", breve: "Victoria, determinación, voluntad." },
+  { nombre: "La Fuerza", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/RWS_Tarot_08_Strength.jpg/200px-RWS_Tarot_08_Strength.jpg", breve: "Coraje, dominio interior, compasión." },
+  { nombre: "El Ermitaño", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/RWS_Tarot_09_Hermit.jpg/200px-RWS_Tarot_09_Hermit.jpg", breve: "Búsqueda interior, soledad, sabiduría." },
+  { nombre: "La Rueda de la Fortuna", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg/200px-RWS_Tarot_10_Wheel_of_Fortune.jpg", breve: "Destino, cambios, ciclos." },
+  { nombre: "La Justicia", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/RWS_Tarot_11_Justice.jpg/200px-RWS_Tarot_11_Justice.jpg", breve: "Equilibrio, verdad, causa y efecto." },
+  { nombre: "El Colgado", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/RWS_Tarot_12_Hanged_Man.jpg/200px-RWS_Tarot_12_Hanged_Man.jpg", breve: "Pausa forzada, nueva visión, entrega." },
+  { nombre: "La Muerte", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/RWS_Tarot_13_Death.jpg/200px-RWS_Tarot_13_Death.jpg", breve: "Fin de una etapa, transformación y renacimiento." },
+  { nombre: "La Templanza", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/RWS_Tarot_14_Temperance.jpg/200px-RWS_Tarot_14_Temperance.jpg", breve: "Armonía, paciencia, equilibrio espiritual." },
+  { nombre: "El Diablo", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RWS_Tarot_15_Devil.jpg/200px-RWS_Tarot_15_Devil.jpg", breve: "Ataduras, tentación, sombra interna." },
+  { nombre: "La Torre", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RWS_Tarot_16_Tower.jpg/200px-RWS_Tarot_16_Tower.jpg", breve: "Ruptura, revelación, cambio radical." },
+  { nombre: "La Estrella", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/RWS_Tarot_17_Star.jpg/200px-RWS_Tarot_17_Star.jpg", breve: "Esperanza, guía, inspiración divina." },
+  { nombre: "La Luna", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/RWS_Tarot_18_Moon.jpg/200px-RWS_Tarot_18_Moon.jpg", breve: "Confusión, intuición profunda, sombras." },
+  { nombre: "El Sol", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/RWS_Tarot_19_Sun.jpg/200px-RWS_Tarot_19_Sun.jpg", breve: "Claridad, éxito rotundo, felicidad." },
+  { nombre: "El Juicio", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RWS_Tarot_20_Judgement.jpg/200px-RWS_Tarot_20_Judgement.jpg", breve: "Renacimiento, llamado interior, redención." },
+  { nombre: "El Mundo", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/RWS_Tarot_21_World.jpg/200px-RWS_Tarot_21_World.jpg", breve: "Finalización, logro, plenitud." }
 ];
 
 
