@@ -103,6 +103,51 @@
       border-radius: 10px;
       margin-top: 10px;
     }
+    
+ #pantalla-transicion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://cdn.pixabay.com/photo/2023/10/05/19/43/tarot-8296828_960_720.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  animation: none;
+}
+
+#pantalla-transicion.activo {
+  animation: zoomFade 4s ease forwards;
+  pointer-events: auto;
+}
+
+@keyframes zoomFade {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -115,9 +160,11 @@
   </div>
 
   <button id="botonSiguiente">Ver siguiente carta</button>
+  <div id="pantalla-transicion">
 
+</div>
   <script>
-  let estado = "saludo";
+let estado = "saludo";
 let nombre = "";
 let sexo = "";
 let historia = "";
@@ -156,9 +203,19 @@ function mostrarCarta() {
   } else {
     botonSiguiente.style.display = "none";
     setTimeout(() => {
-      interpretarCartas();
+      mostrarTransicionYLuegoInterpretar();
     }, 2000);
   }
+}
+
+function mostrarTransicionYLuegoInterpretar() {
+  const transicion = document.getElementById("pantalla-transicion");
+  transicion.classList.add("activo");
+
+  setTimeout(() => {
+    transicion.classList.remove("activo");
+    interpretarCartas();
+  }, 4000); // 4 segundos
 }
 
 async function interpretarCartas() {
@@ -250,7 +307,7 @@ botonSiguiente.addEventListener("click", () => {
 // Disparo inicial
 agregarMensaje("✨ Bienvenido al tarot de Madame Lunara ✨", "madame");
 setTimeout(() => procesarEntrada(""), 1000);
+</script>
 
-  </script>
 </body>
 </html>
