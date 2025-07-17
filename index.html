@@ -166,7 +166,7 @@ async function interpretarCartas() {
           },
           {
             role: "user",
-            content: `Consultante: ${nombre}, que se identifica como ${sexo}, ha contado: "${historia}". Las cartas son: ${cartas.join(", ")}. Realizá una interpretación mística y emocional combinada.`,
+            content: prompt,
           }
         ]
       }),
