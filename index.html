@@ -110,7 +110,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('https://i.ibb.co/nMwTBsZv/Madame-lunara.png');
+  background-image: url('');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -296,7 +296,7 @@ function procesarEntrada(entrada) {
     } else {
       historia = entrada;
     }
-    agregarMensaje("Veamos que sale... barajo las cartas... Vamos con la primera.", "madame");
+    agregarMensaje("Me concentro... barajo las cartas... Vamos con la primera carta.", "madame");
     cartasSeleccionadas = mazo.sort(() => 0.5 - Math.random()).slice(0, 3);
     setTimeout(() => mostrarCarta(), 2000);
     estado = "tirandoCartas";
@@ -326,7 +326,7 @@ botonSiguiente.addEventListener("click", () => {
 });
 
 // Disparo inicial
-agregarMensaje("Bienvenido", "madame");
+agregarMensaje("✨ Bienvenido al tarot de Madame Lunara ✨", "madame");
 setTimeout(() => procesarEntrada(""), 1000);
 </script>
 
