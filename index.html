@@ -166,7 +166,7 @@ async function interpretarCartas() {
           },
           {
             role: "user",
-            content: prompt,
+            content: `Consultante: ${nombre}, que se identifica como ${sexo}, ha contado: "${historia}". Las cartas son: ${cartas.join(", ")}. Realizá una interpretación mística y emocional combinada.`,
           }
         ]
       }),
@@ -196,7 +196,7 @@ function procesarEntrada(entrada) {
 
   } else if (estado === "pedirSexo") {
     sexo = entrada.toLowerCase();
-    agregarMensaje(`Gracias. ¿Querés contarme brevemente tu situación o pasamos directo a las cartas?`, "madame");
+    agregarMensaje(`Gracias. Visualizá lo que queres saber.. Si querés me podes contar o directamente tiramos las cartas. Comenzamos?`, "madame");
     estado = "preguntarHistoria";
 
   } else if (estado === "preguntarHistoria") {
